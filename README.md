@@ -1,12 +1,12 @@
 # FIDUS:  Feature  Interaction  Detection  Using  Similarity  in  Software  ProductLines
 
-## Leveraging Feature Similarity for EarlierDetection of Unwanted Feature Interactions inEvolving Software Product LinesSeyedehzahra 
+## Leveraging Feature Similarity for EarlierDetection of Unwanted Feature Interactions inEvolving Software Product Lines
 
-Khoshmanesh and Robyn R. Lutz
+Seyedehzahra Khoshmanesh and Robyn R. Lutz
 
-Iowa State University, Ames IA 50011, 
+Iowa State University, Ames IA 50011, USA
 
-USA{zkh,rlutz}@iastate.edu
+{zkh,rlutz}@iastate.edu
 
 
 ## Abstract
