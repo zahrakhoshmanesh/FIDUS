@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<featureModel>
+    <properties/>
+    <struct>
+        <and abstract="true" mandatory="true" name="Busybox_1_7_0">
+            <feature name="HAVE_DOT_CONFIG"/>
+            <feature name="Setting"/>
+            <and name="GENERAL_CONFIGURATION">
+                <and name="NITPICK">
+                    <alt name="Buffer_Allocation_Policy">
+                        <feature name="USE_MALLOC"/>
+                        <feature name="GO_ON_STACK"/>
+                        <feature name="GO_IN_BSS"/>
+                    </alt>
+                    <feature name="CLEAN_UP"/>
+                </and>
+                <feature name="DESKTOP"/>
+                <and name="SHOW_USAGE">
+                    <feature name="COMPRESS_USAGE"/>
+                </and>
+                <feature name="VERBOSE_USAGE"/>
+                <feature name="INSTALLER"/>
+                <feature name="LOCATE_SUPPORT"/>
+                <feature name="GETOPT_LONG"/>
+                <feature name="DEVPTS"/>
+                <feature name="PIDFILE"/>
+                <and name="SUID">
+                    <and name="SUID_CONFIG">
+                        <feature name="SUID_CONFIG_QUIET"/>
+                    </and>
+                </and>
+                <feature name="SELINUX"/>
+                <feature name="PREFER_APPLETS"/>
+                <feature name="BUSYBOX_EXEC_PATH"/>
+                <feature name="SYSLOG"/>
+                <feature name="HAVE_RPC"/>
+            </and>
+            <and name="BUILD_OPTION">
+                <feature name="STATIC"/>
+                <and name="LIBBUSYBOX">
+                    <feature name="FULL"/>
+                    <feature name="SHARED"/>
+                </and>
+                <feature name="AT_ONCE"/>
+            </and>
+            <and name="DEBUGGING_OPTION">
+                <feature name="DEBUG"/>
+                <feature name="WERROR"/>
+                <alt name="ADDITIONAL_DEBUGGING_LIBRARY">
+                    <feature name="NO_DEBUG_LIB"/>
+                    <feature name="DMALLOC"/>
+                    <feature name="EFENCE"/>
+                </alt>
+                <feature name="INCLUDE_SUSv2"/>
+            </and>
+            <and name="installation_options">
+                <feature name="INSTALL_NO_USR"/>
+                <alt name="APPLET_LINKS">
+                    <feature name="SYMLINKS"/>
+                    <feature name="HARDLINKS"/>
+                    <feature name="DONT"/>
+                </alt>
+                <feature name="PREFIX"/>
+            </and>
+        </and>
+    </struct>
+    <constraints>
+        <rule>
+            <imp>
+                <var>SHARED</var>
+                <conj>
+                    <not>
+                        <var>STATIC</var>
+                    </not>
+                    <var>LIBBUSYBOX</var>
+                </conj>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>DONT</var>
+                <disj>
+                    <var>INSTALLER</var>
+                    <var>PREFER_APPLETS</var>
+                </disj>
+            </imp>
+        </rule>
+        <rule>
+            <imp>
+                <var>LIBBUSYBOX</var>
+                <not>
+                    <var>PREFER_APPLETS</var>
+                </not>
+            </imp>
+        </rule>
+    </constraints>
+    <calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+    <comments/>
+    <featureOrder userDefined="false"/>
+</featureModel>
